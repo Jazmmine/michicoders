@@ -14,6 +14,7 @@
 
 .fondo-presentacion{
     z-index: 10;
+    padding-top: 10%;
 }
 .fondo-choose{
     z-index: 3;
