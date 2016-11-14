@@ -1,3 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arimo';
+}
+.fondo-presentacion, .fondo-choose{
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+}
+.fondo-presentacion{
+    z-index: 10;
+    padding-top: 10%;
+}
+.fondo-choose{
+    z-index: 3;
+}
+.color-white{
+    color: white;
+}
+.img-michi{
+    background-image: url(../img/michi.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 28vh;
+    width: 11vw;
+    margin: 0 auto;
+    overflow: overlay;   
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.hover-blue:hover{
+    color:#039be5;
+}
+
+/*--------------------------------------*/
 body{
 	background-color: black;
 	color: white;
