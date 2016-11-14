@@ -5,10 +5,18 @@
     font-family: 'Arimo';
 }
 
-.fondo{
+.fondo-presentacion, .fondo-choose{
     background-color: black;
     height: 100vh;
     width: 100vw;
+    position: absolute;
+}
+
+.fondo-presentacion{
+    z-index: 10;
+}
+.fondo-choose{
+    z-index: 3;
 }
 .color-white{
     color: white;
@@ -22,4 +30,11 @@
     width: 11vw;
     margin: 0 auto;
     overflow: overlay;   
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+.hover-blue:hover{
+    color:#039be5;
 }
