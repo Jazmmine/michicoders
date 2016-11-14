@@ -1,0 +1,15 @@
+{
+  "name": "michicoders",
+  "version": "1.0.0",
+  "description": "juego de michi usando socker io",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Jazmine y Diana",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
