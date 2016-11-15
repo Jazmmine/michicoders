@@ -16,6 +16,10 @@ $(document).ready(function() {
 });
 
 socket.on("yajugo", function (data) {
-	alert(data);
+	switchPage($data);
 	// $(".cuadrado").append(data);
 });
+
+socket.on('turnando', function(s){
+      switchPage($gameFull);
+    });
