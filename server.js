@@ -13,6 +13,12 @@ io.on("connection", function(socket) {
 		console.log(data);
 		socket.broadcast.emit("seconecto",data);
 	});
+	socket.on("jugada",function(divSeleccionado){
+		console.log(divSeleccionado)
+		socket.broadcast.emit("jugada",divSeleccionado);
+	});
+	
+	
 });
 
 

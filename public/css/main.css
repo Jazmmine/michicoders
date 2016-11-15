@@ -40,6 +40,13 @@
 .hidden{
     display: none;
 }
+.classX{
+    background-color: aquamarine;
+}
+
+.classO{
+    background-color: purple;
+}
 /*--------------------------------------*/
 body{
 	background-color: black;
