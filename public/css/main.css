@@ -41,10 +41,12 @@
 body{
 	background-color: black;
 	color: white;
+    font-family: 'Arimo';
 }
 .sin-mg{
-	margin:0;
+	margin-bottom:0 !important;
 	padding: 0;
+    margin:0;
 }
 .cuadrado{
 	width: 100px;
