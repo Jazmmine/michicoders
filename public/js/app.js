@@ -10,11 +10,12 @@ $(document).ready(function() {
 	$(".cuadrado").click(function(){
 		var $cruz = $("<i></i>").text("clear");
 		$cruz.addClass("cursor-pointer color-white material-icons large");
-
-		socket.emit("conectando", $cruz);
+		// $(this).append($cruz);
+		socket.emit("turnando", $cruz);
 	});
 });
 
 socket.on("yajugo", function (data) {
-	$(".cuadrado").append(data);
+	alert(data);
+	// $(".cuadrado").append(data);
 });

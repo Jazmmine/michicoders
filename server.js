@@ -10,7 +10,6 @@ io.on("coneccion", function(socket) {
 		socket.broadcast.emit("yajugo", data)
 	});
 });
-
 server.listen(1511, function() {
 	console.log("El servidor ha iniciado en el puerto 1511");
 });
