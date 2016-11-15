@@ -74,6 +74,11 @@ io.on("connection", function(socket) {
 	});
 });
 
-server.listen(1511, function() {
-	console.log("El servidor ha iniciado en el puerto 1511");
+//HEROKU
+app.set('port', (process.env.PORT || 1511));
+app.get('/', function(req, res) {
+  res.render("index.html");
+});
+server.listen(app.get('port'), function(){
+  console.log("encendido");
 });
