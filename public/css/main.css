@@ -37,6 +37,9 @@
     color:#039be5;
 }
 
+.hidden{
+    display: none;
+}
 /*--------------------------------------*/
 body{
 	background-color: black;
