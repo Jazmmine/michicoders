@@ -63,6 +63,8 @@ io.on("connection", function(socket) {
 		posiciones[row][col] = divSeleccionado.valor;
 		// console.log(posiciones);
 
+		socket.broadcast.emit("jugada", divSeleccionado);
+
 		var ganador = encontrarGanador(posiciones, divSeleccionado.valor);
 		console.log(ganador);
 		if(ganador == true){
