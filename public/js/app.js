@@ -1,5 +1,3 @@
-var socket = io();
-
 $(document).ready(function() {
 	$("#start-game").click(function(e){
         e.preventDefault();
@@ -21,5 +19,6 @@ socket.on("yajugo", function (data) {
 });
 
 socket.on('turnando', function(s){
-      switchPage($gameFull);
-    });
+    switchPage($gameFull);
+});
+

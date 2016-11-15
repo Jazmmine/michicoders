@@ -37,6 +37,16 @@
     color:#039be5;
 }
 
+.hidden{
+    display: none;
+}
+.classX{
+    background-color: aquamarine;
+}
+
+.classO{
+    background-color: purple;
+}
 /*--------------------------------------*/
 body{
 	background-color: black;
