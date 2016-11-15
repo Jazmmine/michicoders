@@ -1,6 +1,7 @@
 var socket = io();
 var valorPagina;
 var prueba;
+var turno;
 
 $(document).ready(function() {
   valorPagina = $("#valor-pagina").val();
@@ -14,26 +15,25 @@ $(document).ready(function() {
    
   $(".cuadrado").click(function(){
     var divSeleccionado = $(this).attr("id");
-    //console.log(divSeleccionado)
+    var posX = $(this).attr("data-x");
+    var posY = $(this).attr("data-y");
+
     var divSeleccionadoJson = {
-        id: divSeleccionado,
-        name: valorPagina
+      id: divSeleccionado,
+      x: posX,
+      y: posY,
+      valor: valorPagina
     }
     socket.emit("jugada",divSeleccionadoJson);
 
     if(valorPagina == "X"){
-        $(this).addClass("classX");
+      $(this).addClass("classX");   
     }
     else if(valorPagina == "O"){
-         $(this).addClass("classO");
-    }
-
-    if(($(this).hasClass("classX")) && 
-       ($(this).prev().hasClass("classX")) &&
-       ($(this).prev().prev().hasClass("classX"))){
-      alert("GANASTE");
+      $(this).addClass("classO");
     }
   });
+
 });
 
 socket.on("seconecto", function(data){
@@ -45,10 +45,15 @@ socket.on("seconecto", function(data){
 socket.on("jugada", function(divSeleccionadoJson){
     console.log(divSeleccionadoJson);
     // var clase = "";
-    if(divSeleccionadoJson.name == "X"){
-        $("#" + divSeleccionadoJson.id).addClass("classX");
+    if(divSeleccionadoJson.valor == "X"){
+      $("#" + divSeleccionadoJson.id).addClass("classX");
     }
-    else if(divSeleccionadoJson.name == "O"){
-         $("#" + divSeleccionadoJson.id).addClass("classO");
-    }   
+    else if(divSeleccionadoJson.valor == "O"){
+      $("#" + divSeleccionadoJson.id).addClass("classO");
+    }
 });
+
+socket.on("validar", function(mensaje){
+  alert("GANASTE!!");
+});
+

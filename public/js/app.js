@@ -4,21 +4,5 @@ $(document).ready(function() {
         $(".fondo-presentacion").slideUp(1000);
         $(".fondo-choose").slideDown(1000);
     });
-
-	$(".cuadrado").click(function(){
-		var $cruz = $("<i></i>").text("clear");
-		$cruz.addClass("cursor-pointer color-white material-icons large");
-		// $(this).append($cruz);
-		socket.emit("turnando", $cruz);
-	});
-});
-
-socket.on("yajugo", function (data) {
-	switchPage($data);
-	// $(".cuadrado").append(data);
-});
-
-socket.on('turnando', function(s){
-    switchPage($gameFull);
 });
 
