@@ -10,6 +10,7 @@
   "author": "Jazmine y Diana",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "socket.io": "^1.5.1"
   }
 }
