@@ -21,7 +21,6 @@ io.on("connection", function(socket) {
 	
 });
 
-
 server.listen(1511, function() {
 	console.log("El servidor ha iniciado en el puerto 1511");
 });
