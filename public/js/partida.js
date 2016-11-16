@@ -1,48 +1,54 @@
 var socket = io();
 var valorPagina;
 var prueba;
-var turno;
+var esturno = false;
 
 $(document).ready(function() {
   valorPagina = $("#valor-pagina").val();
   //console.log(valorPagina);
-  socket.connect();
-
-  var valorPaginaJson = {
-      id: valorPagina
-  }
-  socket.emit("valor",valorPaginaJson);
-   
-  $(".cuadrado").click(function(){
-    var divSeleccionado = $(this).attr("id");
-    var posX = $(this).attr("data-x");
-    var posY = $(this).attr("data-y");
-
-    var divSeleccionadoJson = {
-      id: divSeleccionado,
-      x: posX,
-      y: posY,
-      valor: valorPagina
-    }
-    socket.emit("jugada",divSeleccionadoJson);
-
-    if(valorPagina == "X"){
-      $(this).addClass("classX");   
+      
+    if(valorPagina== "X"){
+        esturno = true;
     }
     else if(valorPagina == "O"){
-      $(this).addClass("classO");
+        esturno = false;
+    }   
+  socket.connect();
+
+ /* var valorPaginaJson = {
+      id: valorPagina
+  }*/
+   
+  $(".cuadrado").click(function(){
+    if(esturno){
+      var divSeleccionado = $(this).attr("id");
+      var posX = $(this).attr("data-x");
+      var posY = $(this).attr("data-y");
+
+      var divSeleccionadoJson = {
+        id: divSeleccionado,
+        x: posX,
+        y: posY,
+        valor: valorPagina,
+      }
+      socket.emit("jugadacli",divSeleccionadoJson);
+
+      if(valorPagina == "X"){
+        $(this).addClass("classX"); 
+      }
+      else if(valorPagina == "O"){
+        $(this).addClass("classO");
+      }
+      esturno = false;
+    }else{
+      alert("Espera tu turno");
     }
+  
   });
 
 });
 
-socket.on("seconecto", function(data){
-    // console.log("rpta: ");
-    // console.log(data);
-    // console.log("rpta: " + data);
-});
-
-socket.on("jugada", function(divSeleccionadoJson){
+socket.on("jugadaserver", function(divSeleccionadoJson){
     console.log(divSeleccionadoJson);
     // var clase = "";
     if(divSeleccionadoJson.valor == "X"){
@@ -51,6 +57,7 @@ socket.on("jugada", function(divSeleccionadoJson){
     else if(divSeleccionadoJson.valor == "O"){
       $("#" + divSeleccionadoJson.id).addClass("classO");
     }
+    esturno = true;
 });
 
 socket.on("validar", function(mensaje){

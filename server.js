@@ -50,22 +50,18 @@ function encontrarGanador(arreglo, jugador) {
 }
 
 io.on("connection", function(socket) {
-	socket.on("valor",function(data){
-		// console.log(data);
-		socket.broadcast.emit("seconecto",data);
-	});
-	socket.on("jugada",function(divSeleccionado){
-		console.log(divSeleccionado);
+	socket.on("jugadacli",function(data){
+		console.log(data);
 
-		var row = divSeleccionado.x;
-		var col = divSeleccionado.y;
+		var row = data.x;
+		var col = data.y;
 
-		posiciones[row][col] = divSeleccionado.valor;
+		posiciones[row][col] = data.valor;
 		// console.log(posiciones);
 
-		socket.broadcast.emit("jugada", divSeleccionado);
+		socket.broadcast.emit("jugadaserver", data);
 
-		var ganador = encontrarGanador(posiciones, divSeleccionado.valor);
+		var ganador = encontrarGanador(posiciones, data.valor);
 		console.log(ganador);
 		if(ganador == true){
 			socket.emit("validar", ganador);
@@ -73,6 +69,7 @@ io.on("connection", function(socket) {
 				  [0,0,0],
 				  [0,0,0]];
 		}	
+
 	});
 });
 
