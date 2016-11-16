@@ -8,9 +8,11 @@ $(document).ready(function() {
   //console.log(valorPagina);
       
     if(valorPagina== "X"){
+        alert("Comienza a jugar");
         esturno = true;
     }
     else if(valorPagina == "O"){
+        alert("Espera tu turno")
         esturno = false;
     }   
   socket.connect();
